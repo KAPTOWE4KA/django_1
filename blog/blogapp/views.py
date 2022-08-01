@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post
 
 
@@ -9,4 +9,9 @@ def main_view(request):
 
 def create_post(request):
     return render(request, 'blogapp/create.html', context={})
-    #TODO видео урок на 48:36. Продолжить дома
+
+
+def post(request, id):
+    post = get_object_or_404(Post, id=id)
+    #post = Post.objects.get(id=id)
+    return render(request, 'blogapp/post.html', context={'post':post})
