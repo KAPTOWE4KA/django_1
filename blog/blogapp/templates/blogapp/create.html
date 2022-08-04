@@ -5,7 +5,7 @@
 {% block content%}
         <main class="mb-4">
             <div class="container px-4 px-lg-5">
-                            <form method="post" id="contactForm">
+                            <form method="post">
                                 {% csrf_token %}
                                 {{ form.as_p }}
                                 <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Send</button>
