@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}
+Главная
+{% endblock %}
+{% block content%}
+<div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    {% if tags %}
+                    <ul>
+                        <div class="post-preview">
+                        {% for tag in tags %}
+                            <li class=>
+                                {{ tag.name }}
+                            </li>
+                        <!-- Divider-->
+                        <hr class="my-4" />
+                        {% endfor %}
+                        </div>
+                    </ul>
+                    {% endif %}
+                    {% if categories %}
+                    <ul>
+                        <div class="post-preview">
+                        {% for cat in categories %}
+                            <li class=>
+                                {{ cat.name }} : {{ cat.desc }}
+                            </li>
+                        <!-- Divider-->
+                        <hr class="my-4" />
+                        {% endfor %}
+                        </div>
+                    </ul>
+                    {% endif %}
+                    <!-- Pager-->
+                    <!--<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>-->
+                </div>
+            </div>
+{% endblock %}

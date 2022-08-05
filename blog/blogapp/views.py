@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
+from django.shortcuts import render, HttpResponseRedirect, get_object_or_404, Http404
 from django.urls import reverse
 
 from .models import Post, PostForm, Category, CategoryForm, Tag, TagForm
@@ -70,3 +70,13 @@ def post(request, id):
         post = get_object_or_404(Post, id=id)
         #post = Post.objects.get(id=id)
         return render(request, 'blogapp/post.html', context={'post': post})
+
+
+def list_tags(request):
+    tags = Tag.objects.all()
+    return render(request, 'blogapp/list_of_items.html', context={'tags': tags})
+
+
+def list_categories(request):
+    categories = Category.objects.all()
+    return render(request, 'blogapp/list_of_items.html', context={'categories': categories})
